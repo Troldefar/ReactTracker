@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import Tasks from './components/Tasks';
+import { useState } from 'react';
 
 function App() {
+  const [tasks, setTasks] = useState([
+    {
+      id: 1,
+      text: 'doctor',
+      day: '23/2',
+      reminder: true
+    },
+    {
+      id: 12,
+      text: 'doctor2',
+      day: '22/1',
+      reminder: true
+    },
+    {
+      id: 3,
+      text: 'doctor3',
+      day: '25/3',
+      reminder: false
+    }
+  ]);
+
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header title='Prod tracker' />
+      {
+        tasks.length > 0 ?
+        <Tasks tasks={tasks} onDelete={deleteTask} /> :
+        'No tasks avaliable'
+      }
     </div>
   );
 }
