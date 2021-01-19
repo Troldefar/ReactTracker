@@ -73,9 +73,9 @@ function App() {
   return (
     <Router>
       <div className="container">
+        <Header title='Prod tracker' onAdd={() => setShowAdd(!showAdd)} showAdd={showAdd} />
         <Route path='/' exact render={(props) => (
           <>
-            <Header title='Prod tracker' onAdd={() => setShowAdd(!showAdd)} showAdd={showAdd} />
             { showAdd && <AddTask  onAdd={addTask} /> }
             {
               tasks.length > 0 ?
