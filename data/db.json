@@ -10,7 +10,7 @@
       "id": 3,
       "text": "doctor3",
       "day": "25/3",
-      "reminder": false
+      "reminder": true
     },
     {
       "text": "denher",
